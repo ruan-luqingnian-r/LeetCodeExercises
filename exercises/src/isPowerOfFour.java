@@ -17,4 +17,8 @@ public class isPowerOfFour {
         int x = (int)Math.sqrt(n);
         return x * x == n && (x & -x) == x;
     }
+
+
+
+
 }
