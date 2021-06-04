@@ -36,10 +36,10 @@ public class IntersectingLinkedList {
                 return null;
             }
             if(trmpA == null){
-                trmpA = trmpB;
+                trmpA = headB;
             }
             if(trmpB == null){
-                trmpB= trmpA;
+                trmpB= headA;
             }
         }
         return trmpA;
