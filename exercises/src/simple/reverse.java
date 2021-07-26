@@ -12,6 +12,10 @@ package simple;
  */
 public class reverse {
 
+    public static void main(String[] args) {
+        int reverse = reverse(12312123);
+        System.out.println(reverse);
+    }
 
     public static int reverse (int x){
         //定义遍历用于接收结果
