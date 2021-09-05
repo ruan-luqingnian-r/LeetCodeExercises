@@ -1,5 +1,7 @@
 package find;
 
+import java.util.ArrayList;
+
 /**
  * @Author: ruan
  * Date: 2021/9/5 17:20
@@ -11,13 +13,15 @@ public class LinearSearch {
         System.out.println(select(arr,1113));
     }
 
-    public static int select(int[] arr,int target){
+    public static ArrayList<String> select(int[] arr, int target){
+
+        ArrayList<String> arrayList = new ArrayList<>();
 
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == target){
-                return i;
+                arrayList.add(i+"");
             }
         }
-        return -1;
+        return arrayList;
     }
 }
