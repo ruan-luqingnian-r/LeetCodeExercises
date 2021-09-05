@@ -6,4 +6,5 @@ package find;
  * @Description: 线性查找
  */
 public class LinearSearch {
+
 }
