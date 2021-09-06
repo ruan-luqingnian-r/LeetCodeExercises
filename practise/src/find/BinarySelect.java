@@ -15,8 +15,42 @@ public class BinarySelect {
         System.out.println(select(arr,4,0,arr.length - 1));
     }
 
-    private static ArrayList<String> select(int[] arr, int target, int left, int right) {
-        ArrayList<String> arrayList = new ArrayList<>();
-        return arrayList;
+    private static ArrayList<Integer> select(int[] arr, int target, int left, int right) {
+        int mid = (left + right) / 2;
+        int midValue = arr[mid];
+
+        if (left > right){
+            return new ArrayList<>();
+        }
+
+        if (midValue > target){
+            //目标值在中间值左边，向左递归
+            return select(arr, target, left, mid - 1);
+        }else if (target > midValue){
+            return select(arr, target, mid + 1, right);
+        }else {
+            //找到mid的就是中间值
+            ArrayList<Integer> list = new ArrayList<>();
+            list.add(mid);
+            //扫描相同值
+            int temp1 = mid - 1;
+            while (true){
+                if (temp1 < 0 || arr[temp1] != target){
+                    break;
+                }
+                list.add(temp1);
+                temp1--;
+            }
+            int temp2 = mid + 1;
+            while (true){
+                if (temp2 > arr.length || arr[temp2] != target){
+                    break;
+                }
+                list.add(temp2);
+                temp2++;
+            }
+            return list;
+        }
+
     }
 }
