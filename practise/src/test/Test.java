@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class Test {
     public static void main(String[] args) {
         int[] arr = {23,32,42,1,312,412,31,4242,312,312,412,3124,3534,53,62,4,124,235,234,124,23124,12};
-        insertionSort(arr);
+        shellSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -79,10 +79,12 @@ public class Test {
                 //保存待插入数字和下标
                 int index = i;
                 int value = arr[i];
-                if (arr[i] < arr[i - gap]){
-                    while ((i - gap) > 0 && arr[i] < arr[i - gap]){
-                        arr[index] = arr[i - gap];
+                if (arr[index] < arr[index - gap]){
+                    while ((index - gap) > 0 && arr[index] < arr[index - gap]){
+                        arr[index] = arr[index - gap];
+                        index = index - gap;
                     }
+                    arr[index] = value;
                 }
             }
         }
