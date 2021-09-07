@@ -14,6 +14,10 @@ public class Test {
         System.out.println(Arrays.toString(arr));
     }
 
+    /**
+     * 冒泡排序
+     * @param arr
+     */
     public static void bubbleSort(int[] arr){
         int temp = 0;
         for (int i = 0; i < arr.length; i++) {
