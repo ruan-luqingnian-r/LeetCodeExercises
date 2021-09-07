@@ -84,7 +84,7 @@ public class Test {
                 int j = i;
                 int value = arr[j];
                 if (arr[j] < arr[j - gap]){
-                    while (j - gap >= 0 && value < arr[j - gap]){
+                    while ((j - gap) >= 0 && value < arr[j - gap]){
                         arr[j] = arr[j - gap];
                         j = j - gap;
                     }
