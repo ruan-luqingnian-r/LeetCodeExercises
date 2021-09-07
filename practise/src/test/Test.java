@@ -10,7 +10,8 @@ import java.util.Arrays;
 public class Test {
     public static void main(String[] args) {
         int[] arr = {23,32,42,1,312,412,31,4242,312,312,412,3124,3534,53,62,4,124,235,234,124,23124,12};
-        shellSort(arr);
+        //shellSort(arr);
+        quickSort(arr,0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -108,7 +109,7 @@ public class Test {
             while (arr[r] > value){
                 r--;
             }
-            if (l > r){
+            if (l >= r){
                 break;
             }
             //开始交换
