@@ -94,5 +94,46 @@ public class Test {
         }
     }
 
+    public static void quickSort(int[] arr,int left,int right){
+        //保存相关变量
+        int l = left;
+        int r = right;
+        int mid = (left + right) / 2;
+        int value = arr[mid];
+        int temp = 0;
+        while (l < r){
+            while (arr[l] < value){
+                l++;
+            }
+            while (arr[r] > value){
+                r--;
+            }
+            if (l > r){
+                break;
+            }
+            //开始交换
+            temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+            if (arr[l] == value){
+                r--;
+            }
+            if (arr[r] == value){
+                l++;
+            }
+        }
+        if (arr[l] == arr[r]){
+            l++;
+            r--;
+        }
+        if (l < right){
+            quickSort(arr, l, right);
+        }
+        if (r > left){
+            quickSort(arr, left, r);
+        }
+    }
+
+
 
 }
