@@ -1,6 +1,7 @@
 package find;
 
 import java.util.ArrayList;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @Author: ruan
@@ -10,9 +11,8 @@ import java.util.ArrayList;
 public class LinearSearch {
     public static void main(String[] args) {
         int[] arr = {1, 4,4,4, 12, 23, 31, 32, 42, 53, 62, 124, 124, 234, 235, 312, 312, 312, 412, 412, 3124, 3534, 4242, 23124};
-        System.out.println(select(arr,4));
+        System.out.println(select(arr,12312312));
     }
-
     public static ArrayList<String> select(int[] arr, int target){
 
         ArrayList<String> arrayList = new ArrayList<>();
