@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class Test {
     public static void main(String[] args) {
         int[] arr = {23,32,42,1,312,412,31,4242,312,312,412,3124,3534,53,62,4,124,235,234,124,23124,12};
-        bubbleSort(arr);
+        selectSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -35,7 +35,24 @@ public class Test {
      * 选择排序
      */
     public static void selectSort(int[] arr){
-
+        //默认第一个为最小值
+        //遍历数组找到真正的最小值
+        for (int i = 0; i < arr.length; i++) {
+            int minIndex = i;
+            int minValue = arr[i];
+            //遍历数组找到最小值
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < minValue){
+                    minIndex = j;
+                    minValue = arr[j];
+                }
+            }
+            //交换最小值
+            if (minIndex != i){
+                arr[minIndex] = arr[i];
+                arr[i] = minValue;
+            }
+        }
     }
 
 }
