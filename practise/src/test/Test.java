@@ -31,7 +31,10 @@ public class Test {
         }
     }
 
-    public static void selectSort(){
+    /**
+     * 选择排序
+     */
+    public static void selectSort(int[] arr){
 
     }
 
