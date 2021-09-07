@@ -73,6 +73,20 @@ public class Test {
         }
     }
 
+    public static void shellSort(int[] arr){
+        for (int gap = (arr.length / 2); gap > 0; gap /= 2) {
+            for (int i = gap; i < arr.length; i++) {
+                //保存待插入数字和下标
+                int index = i;
+                int value = arr[i];
+                if (arr[i] < arr[i - gap]){
+                    while ((i - gap) > 0 && arr[i] < arr[i - gap]){
+                        arr[index] = arr[i - gap];
+                    }
+                }
+            }
+        }
+    }
 
 
 }
