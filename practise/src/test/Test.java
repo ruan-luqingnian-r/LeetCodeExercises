@@ -1,5 +1,6 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -9,10 +10,11 @@ import java.util.Arrays;
  */
 public class Test {
     public static void main(String[] args) {
-        int[] arr = {23,32,42,1,312,412,31,4242,312,312,412,3124,3534,53,62,4,124,235,234,124,23124,12};
+        int[] arr = {23,32,42,1,312,412,31,4242,4,2,4,4,2,3,4,24,2,4,4,23,2,4,312,312,412,3124,3534,53,62,4,124,235,234,124,23124,12};
         //shellSort(arr);
         quickSort(arr,0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
+        System.out.println(binarySearch(arr,4,0,arr.length - 1));
     }
 
     /**
@@ -136,5 +138,44 @@ public class Test {
     }
 
 
+    /**
+     * 二分查找
+     * @param arr
+     * @param target
+     * @return
+     */
+    public static ArrayList<Integer> binarySearch(int[] arr,int target,int left,int right){
+        int mid = (left + right) / 2;
+        int midValue = arr[mid];
+        if (left > right){
+            return new ArrayList<>();
+        }
+        if (midValue > target){
+            //目标值在左边，向左递归
+            return binarySearch(arr, target, left, mid - 1);
+        }else if (midValue < target){
+            return binarySearch(arr, target, mid + 1, right);
+        }else {
+            ArrayList<Integer> arrayList = new ArrayList<>();
+            arrayList.add(mid);
+            int temp1 = mid - 1;
+            while (true){
+                if (temp1 < 0 || arr[temp1] != target){
+                    break;
+                }
+                arrayList.add(temp1);
+                temp1--;
+            }
+            int temp2 = mid + 1;
+            while (true){
+                if (temp2 > arr.length || arr[temp2] != target){
+                    break;
+                }
+                arrayList.add(temp2);
+                temp2++;
+            }
+            return arrayList;
+        }
+    }
 
 }
