@@ -80,15 +80,15 @@ public class Test {
     public static void shellSort(int[] arr){
         for (int gap = (arr.length / 2); gap > 0; gap /= 2) {
             for (int i = gap; i < arr.length; i++) {
-                //保存待插入数字和下标
-                int index = i;
-                int value = arr[i];
-                if (arr[index] < arr[index - gap]){
-                    while ((index - gap) > 0 && arr[index] < arr[index - gap]){
-                        arr[index] = arr[index - gap];
-                        index = index - gap;
+                //保存下标和待插入数字
+                int j = i;
+                int value = arr[j];
+                if (arr[j] < arr[j - gap]){
+                    while (j - gap >= 0 && value < arr[j - gap]){
+                        arr[j] = arr[j - gap];
+                        j = j - gap;
                     }
-                    arr[index] = value;
+                    arr[j] = value;
                 }
             }
         }
