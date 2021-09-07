@@ -73,6 +73,10 @@ public class Test {
         }
     }
 
+    /**
+     * 希尔排序
+     * @param arr
+     */
     public static void shellSort(int[] arr){
         for (int gap = (arr.length / 2); gap > 0; gap /= 2) {
             for (int i = gap; i < arr.length; i++) {
