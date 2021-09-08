@@ -33,7 +33,7 @@ public class ProducerThread extends Thread {
             if (i % 2 == 0){
                 product.setBrand("DOVE");
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -41,7 +41,7 @@ public class ProducerThread extends Thread {
             }else {
                 product.setBrand("哈尔滨");
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -50,7 +50,7 @@ public class ProducerThread extends Thread {
             System.out.println("工厂生产了" + product.getBrand() + "---" + product.getName());
             //产品生产结束，缓冲区存在商品通知消费者线程进入消费
             product.setFlag(true);
-            notify();
+            notifyAll();
         }
 
     }

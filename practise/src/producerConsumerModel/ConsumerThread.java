@@ -16,7 +16,7 @@ public class ConsumerThread extends Thread {
     }
 
     @Override
-    public void run() {
+    public synchronized void run() {
         //如果没有商品则进入阻塞队列
         if (!product.isFlag()){
             try {
@@ -28,7 +28,7 @@ public class ConsumerThread extends Thread {
         for (int i = 0; i < 10; i++) {
             System.out.println("消费者消费了：" + product.getBrand() + "---" + product.getName());
             product.setFlag(false);
-            notify();
+            notifyAll();
         }
     }
 }
