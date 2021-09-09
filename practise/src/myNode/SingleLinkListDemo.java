@@ -126,6 +126,31 @@ class SinglyLinkedList{
     public void olAdd(Node newNode){
         //创建辅助节点
         Node temp = headNode;
+        //插入的编号是否存在
+        boolean flag = false;
+        //遍历整个节点
+        while (true){
+            if (headNode.getNext() == null){
+                break;
+            }
+            if (temp.getNext().getNo() > newNode.getNo()){
+                //说明找到了待插入位置就再temp后面
+                break;
+            }
+            if (temp.getNext().getNo() == newNode.getNo()){
+                //已经存在此数值
+                flag = true;
+                break;
+            }
+            temp = temp.getNext();
+        }
+        //开始插入
+        if (flag){
+            System.out.printf("准备插入的节点的编号[%d]已经存在了, 不能加入\n",newNode.getNo());
+        }else {
+            newNode.setNext(temp.getNext());
+            temp.setNext(newNode);
+        }
 
 
 
