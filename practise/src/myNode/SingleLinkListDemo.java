@@ -105,10 +105,7 @@ class SinglyLinkedList{
         //定义一个辅助头节点
         Node temp = headNode;
         //遍历链表找到节点尾部
-        while (true){
-            if (temp.getNext() == null){
-                break;
-            }
+        while (temp.getNext() != null){
             //后移节点
             temp = temp.getNext();
         }
@@ -129,10 +126,7 @@ class SinglyLinkedList{
         //定义一个辅助节点
         Node temp = headNode;
         //遍历整个节点
-        while (true){
-            if (temp.getNext() == null){
-                break;
-            }
+        while (temp.getNext() != null){
             temp = temp.getNext();
             System.out.println(temp.toString());
         }
