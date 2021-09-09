@@ -12,10 +12,15 @@ public class SingleLinkListDemo {
         Node node3 = new Node(3, "卧龙");
         Node node4 = new Node(4, "凤雏");
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
-        singlyLinkedList.ulAdd(node1);
-        singlyLinkedList.ulAdd(node2);
+
+        /*singlyLinkedList.ulAdd(node2);
         singlyLinkedList.ulAdd(node3);
         singlyLinkedList.ulAdd(node4);
+        singlyLinkedList.ulAdd(node1);*/
+        singlyLinkedList.olAdd(node2);
+        singlyLinkedList.olAdd(node3);
+        singlyLinkedList.olAdd(node4);
+        singlyLinkedList.olAdd(node1);
         singlyLinkedList.list();
         Node node = singlyLinkedList.findNode(1);
         System.out.printf("[%d]号节点是数据为:[%s] \n",node.getNo(),node.getName());
@@ -130,7 +135,7 @@ class SinglyLinkedList{
         boolean flag = false;
         //遍历整个节点
         while (true){
-            if (headNode.getNext() == null){
+            if (temp.getNext() == null){
                 break;
             }
             if (temp.getNext().getNo() > newNode.getNo()){
