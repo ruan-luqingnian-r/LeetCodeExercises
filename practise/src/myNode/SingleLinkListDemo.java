@@ -18,7 +18,13 @@ public class SingleLinkListDemo {
         singlyLinkedList.ulAdd(node4);
         singlyLinkedList.list();
         Node node = singlyLinkedList.findNode(1);
-        System.out.printf("[%d]号节点是数据为:[%s]",node.getNo(),node.getName());
+        System.out.printf("[%d]号节点是数据为:[%s] \n",node.getNo(),node.getName());
+        singlyLinkedList.updateNode(3,"小卧龙");
+        singlyLinkedList.list();
+        System.out.printf("链表长度为:[%d] \n",singlyLinkedList.size());
+        singlyLinkedList.delNode(3);
+        singlyLinkedList.list();
+        System.out.printf("链表长度为:[%d] \n",singlyLinkedList.size());
     }
 
 }
@@ -112,6 +118,19 @@ class SinglyLinkedList{
         temp.setNext(newNode);
     }
 
+
+    /**
+     * 插入节点---顺序插入
+     * @param newNode
+     */
+    public void olAdd(Node newNode){
+        //创建辅助节点
+        Node temp = headNode;
+
+
+
+    }
+
     /**
      * 打印链表
      * 1.遍历链表打印每一个节点
@@ -139,14 +158,14 @@ class SinglyLinkedList{
      */
     public Node findNode(int no){
         //数据校验
-        if (no < 0){
+        if (no < 0 || no > size()){
             System.out.println("数据异常");;
 
         }else {
             //查看是否为空链表
             if (headNode.getNext() == null){
                 System.out.println("链表为空");
-                return null;
+                return new Node(-1,"");
             }
             //创建辅助节点
             Node temp = headNode;
@@ -158,6 +177,91 @@ class SinglyLinkedList{
                 }
             }
         }
-        return null;
+        return new Node(-1,"");
+    }
+
+    /**
+     * 更新节点数据
+     * @param no 待更新节点no
+     * @param newName 新数据值
+     */
+    public void updateNode(int no,String newName){
+        //判断是否为空
+        if (headNode.getNext() == null){
+            System.out.println("链表为空");
+            return;
+        }
+        /**
+         * 是否找到
+         */
+        boolean flag = false;
+        //数据校验
+        if (no < 0 || no > size()){
+            System.out.println("非法数据");
+        }else {
+            //创建头节点
+            Node temp = headNode.getNext();
+            while (temp != null){
+                temp = temp.getNext();
+                if (temp.getNo() == no){
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag){
+                temp.setName(newName);
+            }else {
+                System.out.printf("[%d]节点不存在",no);
+            }
+        }
+    }
+
+    /**
+     * 删除节点
+     * @param no 要删除节点的no
+     */
+    public void delNode(int no){
+        /**
+         * 是否找到该节点
+         */
+        boolean flag = false;
+        //数据校验
+        if (no < 0 || no > size()){
+            System.out.println("数据异常");
+            return;
+        }
+        //创建辅助节点
+        Node temp = headNode;
+        //遍历节点
+        while (temp.getNext() != null){
+            temp = temp.getNext();
+            if (temp.getNext().getNo() == no){
+                flag = true;
+                break;
+            }
+        }
+        if (flag){
+            temp.setNext(temp.getNext().getNext());
+        }
+    }
+
+    /**
+     * 链表长度
+     * @return
+     */
+    public int size(){
+        int count = 0;
+        //判断是否为空
+        if (headNode.getNext() == null){
+             System.out.println("链表为空");
+             return 0;
+        }
+         //创建辅助链表
+        Node temp = headNode;
+        while (temp.getNext() != null){
+            temp = temp.getNext();
+            count++;
+        }
+        return count;
     }
 }
