@@ -6,6 +6,14 @@ package myNode;
  * @Description:
  */
 public class SingleLinkListDemo {
+    public static void main(String[] args) {
+        Node node1 = new Node(1, "小天才");
+        Node node2 = new Node(2, "大聪明");
+        SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
+        singlyLinkedList.ulAdd(node1);
+        singlyLinkedList.ulAdd(node2);
+        singlyLinkedList.list();
+    }
 
 }
 
@@ -99,5 +107,28 @@ class SinglyLinkedList{
             temp = temp.getNext();
         }
         temp.setNext(newNode);
+    }
+
+    /**
+     * 打印链表
+     * 1.遍历链表打印每一个节点
+     */
+    public void list(){
+        //首先判断链表是否为空
+        if (headNode.getNext() == null){
+            System.out.println("链表为空");
+            return;
+        }
+
+        //定义一个辅助节点
+        Node temp = headNode;
+        //遍历整个节点
+        while (true){
+            if (temp.getNext() == null){
+                break;
+            }
+            temp = temp.getNext();
+            System.out.println(temp.toString());
+        }
     }
 }
