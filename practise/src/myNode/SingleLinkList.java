@@ -5,7 +5,7 @@ package myNode;
  * Date: 2021/9/9 7:57
  * @Description:
  */
-public class Node {
+public class SingleLinkList {
     /**
      * 链表的id
      */
