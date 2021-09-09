@@ -9,10 +9,16 @@ public class SingleLinkListDemo {
     public static void main(String[] args) {
         Node node1 = new Node(1, "小天才");
         Node node2 = new Node(2, "大聪明");
+        Node node3 = new Node(3, "卧龙");
+        Node node4 = new Node(4, "凤雏");
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.ulAdd(node1);
         singlyLinkedList.ulAdd(node2);
+        singlyLinkedList.ulAdd(node3);
+        singlyLinkedList.ulAdd(node4);
         singlyLinkedList.list();
+        Node node = singlyLinkedList.findNode(1);
+        System.out.printf("[%d]号节点是数据为:[%s]",node.getNo(),node.getName());
     }
 
 }
@@ -130,5 +136,34 @@ class SinglyLinkedList{
             temp = temp.getNext();
             System.out.println(temp.toString());
         }
+    }
+
+    /**
+     * 查看节点信息
+     * @param no 节点id
+     * @return
+     */
+    public Node findNode(int no){
+        //数据校验
+        if (no < 0){
+            System.out.println("数据异常");;
+
+        }else {
+            //查看是否为空链表
+            if (headNode.getNext() == null){
+                System.out.println("链表为空");
+                return null;
+            }
+            //创建辅助节点
+            Node temp = headNode;
+            //遍历链表
+            while (temp.getNext() != null){
+                temp = temp.getNext();
+                if (temp.getNo() == no){
+                    return temp;
+                }
+            }
+        }
+        return null;
     }
 }
