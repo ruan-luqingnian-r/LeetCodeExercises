@@ -6,21 +6,23 @@ package myNode;
  * @Description:
  */
 public class SingleLinkList {
-    /**
-     * 链表的id
-     */
-    private Integer id;
-    /**
-     * 链表
-     */
-    private String name;
 
-    public Integer getId() {
-        return id;
+}
+
+/**
+ * 节点
+ */
+class Node{
+    private int no;
+    private String name;
+    private Node next;
+
+    public int getNo() {
+        return no;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setNo(int no) {
+        this.no = no;
     }
 
     public String getName() {
@@ -29,5 +31,13 @@ public class SingleLinkList {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Node getNext() {
+        return next;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
     }
 }
