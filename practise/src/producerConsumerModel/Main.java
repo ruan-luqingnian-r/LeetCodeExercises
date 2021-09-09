@@ -10,7 +10,9 @@ public class Main {
         Product product = new Product();
         ProducerThread producerThread = new ProducerThread(product);
         ConsumerThread customerThread = new ConsumerThread(product);
-        producerThread.start();
+        producerThread.setName("生产者线程");
+        customerThread.setName("消费者线程");
         customerThread.start();
+        producerThread.start();
     }
 }
