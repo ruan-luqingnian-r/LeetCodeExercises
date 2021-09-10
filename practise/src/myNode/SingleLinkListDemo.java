@@ -292,6 +292,7 @@ class SinglyLinkedList{
             temp = temp.getNext();
             count++;
         }
+
         return count;
     }
 }
