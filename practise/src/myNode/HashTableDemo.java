@@ -157,6 +157,28 @@ class NodeList{
         return temp;
     }
 
+    /**
+     * 根据id删除节点
+     * @param no
+     * @return
+     */
+    public boolean delById(int no){
+        if (head == null){
+            System.out.println("链表为空");
+            return false;
+        }
+        //创建辅助节点
+        MyNode temp = head;
+        MyNode myNode = find(no);
+        if (myNode == null){
+            System.out.println("无此节点");
+            return false;
+        }else {
+            head = myNode.getNext();
+            return true;
+        }
+    }
+
 
 
 }
