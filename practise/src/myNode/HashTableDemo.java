@@ -7,15 +7,7 @@ package myNode;
  */
 public class HashTableDemo {
     public static void main(String[] args) {
-        MyNode node1 = new MyNode(1, "测试1");
-        MyNode node2 = new MyNode(2, "测试2");
-        MyNode node3 = new MyNode(3, "测试3");
-        MyNode node4 = new MyNode(4, "测试4");
-        NodeList nodeList = new NodeList();
-        nodeList.add(node1);
-        nodeList.add(node2);
-        nodeList.add(node3);
-        nodeList.add(node4);
+
 
     }
 
@@ -181,4 +173,67 @@ class NodeList{
 
 
 
+}
+
+/**
+ * 创建哈希表
+ */
+class MyHashTable{
+    /**
+     * 数组作为链表底层
+     */
+    private NodeList[] nodeLists;
+    /**
+     * 哈希表长度
+     */
+    private int size;
+
+    /**
+     * 创建构造方法
+     */
+    public MyHashTable(int size) {
+        this.size = size;
+        nodeLists = new NodeList[size];
+        for (int i = 0; i < size; i++) {
+            nodeLists[i] = new NodeList();
+        }
+    }
+
+    /**
+     * 添加节点
+     */
+    public void add(MyNode node){
+        //判断节点要插入的位置
+        int hashFun = hashFun(node.getId());
+        nodeLists[hashFun].add(node);
+    }
+    /**
+     * 查找节点
+     */
+    public MyNode find(int id){
+        int hashFun = hashFun(id);
+        MyNode myNode = nodeLists[hashFun].find(id);
+        if (myNode != null){
+            System.out.printf("在第%d 条链表中找到 雇员 id = %d \n", (hashFun + 1), id);
+        }else {
+            System.out.println("未找到");
+        }
+        return myNode;
+    }
+    /**
+     * 删除节点
+     */
+    public boolean del(int id){
+        int hashFun = hashFun(id);
+        return nodeLists[hashFun].delById(id);
+    }
+
+    /**
+     * 散列函数
+     * @param id
+     * @return
+     */
+    public int hashFun(int id){
+        return id % size;
+    }
 }
