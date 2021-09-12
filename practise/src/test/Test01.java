@@ -8,7 +8,7 @@ import java.util.Arrays;
  * Date: 2021/9/7 14:09
  * @Description:
  */
-public class Test {
+public class Test01 {
     public static void main(String[] args) {
         int[] arr = {23,32,42,1,312,412,31,4242,4,2,4,4,2,3,4,24,2,4,4,23,2,4,312,312,412,3124,3534,53,62,4,124,235,234,124,23124,12};
         //shellSort(arr);
