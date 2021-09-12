@@ -137,8 +137,26 @@ class NodeList{
      * 根据编号查找信息
      * @param no
      */
-    public void find(int no){
-
+    public MyNode find(int no){
+        if (head == null){
+            System.out.println("链表为空");
+            return null;
+        }
+        //创建辅助节点
+        MyNode temp = head;
+        while (true){
+            if (temp.getId() == no){
+                break;
+            }
+            if (temp.getNext() == null){
+                temp = null;
+                break;
+            }
+            temp = temp.getNext();
+        }
+        return temp;
     }
+
+
 
 }
