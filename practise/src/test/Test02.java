@@ -12,10 +12,13 @@ public class Test02 {
 
     public static void main(String[] args) {
         int[] arr = {1,2,32,1,32,13123,123,1242,13124,12,3213,4,12,2,3,4,2,2,2,4,5,6,7};
+        System.out.println("排序前:" + Arrays.toString(arr));
         shellSort(arr);
-        System.out.println(Arrays.toString(arr));
-        ArrayList<Integer> list = linearSearch(arr, 2);
-        System.out.println(list);
+        System.out.println("排序后:" + Arrays.toString(arr));
+        //ArrayList<Integer> list = linearSearch(arr, 2);
+        int target = 2;
+        ArrayList<Integer> list = binarySearch(arr, target, 0, arr.length);
+        System.out.println("值为[" + target + "]的数值下标为:" + list);
     }
 
     /**
@@ -131,6 +134,42 @@ public class Test02 {
             }
         }
         return list;
+    }
+
+    public static ArrayList<Integer> binarySearch(int[] arr,int target,int left,int right){
+        int mid = (left + right) / 2;
+        int value = arr[mid];
+
+        if (left > right){
+            return new ArrayList<>();
+        }
+
+        if (value > target){
+            //向左
+            return binarySearch(arr, target, left, mid - 1);
+        }else if (value < target){
+            return binarySearch(arr, target, mid + 1, right);
+        }else {
+            ArrayList<Integer> list = new ArrayList<>();
+            list.add(mid);
+            int temp1 = mid + 1;
+            while (true){
+                if (temp1 > arr.length || arr[temp1] != target){
+                    break;
+                }
+                list.add(temp1);
+                temp1++;
+            }
+            int temp2 = mid - 1;
+            while (true){
+                if (temp2 < 0 || arr[temp2] != target){
+                    break;
+                }
+                list.add(temp2);
+                temp2--;
+            }
+            return list;
+        }
     }
 
 }
