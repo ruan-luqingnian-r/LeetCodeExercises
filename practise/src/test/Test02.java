@@ -102,7 +102,7 @@ public class Test02 {
                 int value = arr[j];
                 //遍历数据找到最小值
                 if (arr[j] < arr[j - gap]){
-                    while (value < arr[j - gap] && j - gap >= 0){
+                    while ( j - gap >= 0 && value < arr[j - gap]){
                         arr[j] = arr[j - gap];
                         j = j - gap;
                     }
