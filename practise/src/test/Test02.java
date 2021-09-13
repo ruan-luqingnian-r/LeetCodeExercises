@@ -172,4 +172,17 @@ public class Test02 {
         }
     }
 
+    /**
+     * 快速排序
+     * @param arr
+     * @param left
+     * @param right
+     */
+    public static void quickSort(int[] arr,int left,int right){
+        int l = left;
+        int r = right;
+
+
+    }
+
 }
