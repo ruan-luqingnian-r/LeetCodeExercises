@@ -63,4 +63,21 @@ public class Test02 {
         }
     }
 
+    /**
+     * 插入排序
+     * @param arr
+     * 时间复杂度:O(n^2)
+     */
+    public static void insertionSort(int[] arr){
+        //从第二个数值开始与其之前的数据做比较找到待插入位置
+        for (int i = 1; i < arr.length; i++) {
+            //保存数据——（当前待插入值和之前数据的下标）
+            //待插入数据
+            int value = arr[i];
+            //待插入数值的下标
+            int index = i - 1;
+            //遍历之前的数据找到待插入的位置
+        }
+    }
+
 }
