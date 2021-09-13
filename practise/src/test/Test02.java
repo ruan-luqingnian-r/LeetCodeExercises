@@ -1,5 +1,6 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -13,6 +14,8 @@ public class Test02 {
         int[] arr = {1,2,32,1,32,13123,123,1242,13124,12,3213,4,12,2,3,4,2,2,2,4,5,6,7};
         shellSort(arr);
         System.out.println(Arrays.toString(arr));
+        ArrayList<Integer> list = linearSearch(arr, 2);
+        System.out.println(list);
     }
 
     /**
@@ -110,6 +113,24 @@ public class Test02 {
                 }
             }
         }
+    }
+
+    /**
+     * 线性查找
+     * @param arr
+     * @param target
+     * @return
+     */
+    public static ArrayList<Integer> linearSearch(int[] arr,int target){
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == target){
+                list.add(i);
+            }
+        }
+        return list;
     }
 
 }
