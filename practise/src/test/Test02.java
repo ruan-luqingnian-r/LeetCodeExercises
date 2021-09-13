@@ -11,7 +11,7 @@ public class Test02 {
 
     public static void main(String[] args) {
         int[] arr = {1,2,32,1,32,13123,123,1242,13124,12,3213,4,12,2,3,4,2,2,2,4,5,6,7};
-        selectSort(arr);
+        shellSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -77,6 +77,38 @@ public class Test02 {
             //待插入数值的下标
             int index = i - 1;
             //遍历之前的数据找到待插入的位置
+            while (index >= 0 && arr[index] > value){
+                //调整数值
+                arr[index + 1] = arr[index];
+                index--;
+            }
+
+            arr[index + 1] = value;
+        }
+    }
+
+    /**
+     * 希尔排序
+     * @param arr
+     * 时间复杂度：O(nlogn)
+     */
+    public static void shellSort(int[] arr){
+        //分组排序
+        for (int gap = arr.length / 2; gap > 0; gap /= 2) {
+            for (int i = gap; i < arr.length; i++) {
+                //类似于增强插入排序
+                //保存下标与待插入数据
+                int j = i;
+                int value = arr[j];
+                //遍历数据找到最小值
+                if (arr[j] < arr[j - gap]){
+                    while (value < arr[j - gap] && j - gap >= 0){
+                        arr[j] = arr[j - gap];
+                        j = j - gap;
+                    }
+                    arr[j] = value;
+                }
+            }
         }
     }
 
