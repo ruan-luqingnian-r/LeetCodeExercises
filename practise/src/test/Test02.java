@@ -13,7 +13,7 @@ public class Test02 {
     public static void main(String[] args) {
         int[] arr = {1,2,32,1,32,13123,123,1242,13124,12,3213,4,12,2,3,4,2,2,2,4,5,6,7};
         System.out.println("排序前:" + Arrays.toString(arr));
-        shellSort(arr);
+        quickSort(arr,0,arr.length - 1);
         System.out.println("排序后:" + Arrays.toString(arr));
         //ArrayList<Integer> list = linearSearch(arr, 2);
         int target = 2;
@@ -181,7 +181,40 @@ public class Test02 {
     public static void quickSort(int[] arr,int left,int right){
         int l = left;
         int r = right;
-
+        int mid = (left + right) / 2;
+        int midValue = arr[mid];
+        int temp = 0;
+        while (l < r){
+            while (arr[l] < midValue){
+                l++;
+            }
+            while (arr[r] > midValue){
+                r--;
+            }
+            if (l >= r){
+                break;
+            }
+            //交换
+            temp = arr[l];
+            arr[l] = arr[r];
+            arr[r] = temp;
+            if (arr[l] == midValue){
+                r--;
+            }
+            if (arr[r] == midValue){
+                l++;
+            }
+        }
+        if (l == r){
+            l++;
+            r--;
+        }
+        if (l < right){
+            quickSort(arr, l, right);
+        }
+        if (left < r){
+            quickSort(arr,left,r);
+        }
 
     }
 
