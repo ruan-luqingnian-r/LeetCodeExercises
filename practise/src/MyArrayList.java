@@ -89,8 +89,14 @@ public class MyArrayList implements Serializable {
         }
     }
 
+    /**
+     * 检查下标是否越界
+     * @param index
+     */
     private void rangeCheck(int index){
-        if(index < 0 ||)
+        if(index < 0 || index > size){
+            throw new IndexOutOfBoundsException("索引越界");
+        }
     }
 
     /**
@@ -99,6 +105,8 @@ public class MyArrayList implements Serializable {
      * @return
      */
     public Object get(int index){
+        rangeCheck(index);
+        return elementData[index];
 
     }
 
