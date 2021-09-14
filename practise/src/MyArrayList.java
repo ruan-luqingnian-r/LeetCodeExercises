@@ -48,5 +48,61 @@ public class MyArrayList implements Serializable {
         }
     }
 
+    /**
+     * 添加元素
+     * @param e
+     * @return
+     */
+    public boolean add(Object e){
+        //用于并发判断
+        modCount++;
+        //容量判断
+        ensureCapacityInternal(size + 1);
+        //使用下标插入，尾部赋值
+        elementData[size++] = e;
+        return true;
+    }
+
+    /**
+     * 计算容量+确保容量
+     * @param minCapacity
+     */
+    public void ensureCapacityInternal(int minCapacity){
+        //初次扩容使用默认容量
+        if(elementData == EMPTY_ELEMENT_DATA){
+            minCapacity = Math.max(DEFAULT_CAPACITY,minCapacity);
+        }
+        //判断是否需要扩容
+        if (minCapacity - elementData.length > 0){
+            int oldCapacity = elementData.length;
+            int newCapacity = oldCapacity + (oldCapacity >> 1);
+            //如果新容量小于最小容量，者将最小容量付给新容量
+            if (newCapacity - minCapacity < 0){
+                newCapacity = minCapacity;
+            }
+            //创建新数组
+            Object[] objects = new Object[newCapacity];
+            //拷贝数据
+            System.arraycopy(elementData,0,objects,0,elementData.length);
+            //修改引用
+            elementData = objects;
+        }
+    }
+
+    private void rangeCheck(int index){
+        if(index < 0 ||)
+    }
+
+    /**
+     * 通过下标获取对象
+     * @param index
+     * @return
+     */
+    public Object get(int index){
+
+    }
+
+
+
 
 }
