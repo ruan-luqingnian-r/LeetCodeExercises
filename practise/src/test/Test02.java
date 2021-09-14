@@ -20,8 +20,6 @@ public class Test02 {
         ArrayList<Integer> list = binarySearch(arr, target, 0, arr.length);
         System.out.println("值为[" + target + "]的数值下标为:" + list);
     }
-
-
     /**
      * 冒泡排序
      * 时间复杂度
