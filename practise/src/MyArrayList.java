@@ -107,6 +107,35 @@ public class MyArrayList implements Serializable {
     public Object get(int index){
         rangeCheck(index);
         return elementData[index];
+    }
+
+    /**
+     * 判断对象所在位置
+     * @param o
+     * @return
+     */
+    public int indexOf(Object o){
+        if(o == null){
+            for (int i = 0; i < size; i++) {
+                if(elementData[i] == o){
+                    return i;
+                }
+            }
+        }else {
+            for (int i = 0; i < size; i++) {
+                if(elementData[i] == o){
+                    return i;
+                }
+            }
+        }
+        return  -1;
+    }
+
+    /**
+     * 根据索引修改
+     * @return
+     */
+    public Object set(){
 
     }
 
