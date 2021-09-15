@@ -135,10 +135,35 @@ public class MyArrayList implements Serializable {
      * 根据索引修改
      * @return
      */
-    public Object set(){
-
+    public Object set(int index,Object o){
+        //判断数值是否越界
+        rangeCheck(index);
+        Object oldValue = elementData[index];
+        elementData[index] = o;
+        return oldValue;
     }
 
+    public Object remove(int index){
+        rangeCheck(index);
+        //并发判断
+        modCount++;
+        Object oldValue = elementData[index];
+        //计算要删除的位置后面还有几个元素
+        int numMoved = size - index - 1;
+        if (numMoved > 0){
+            System.arraycopy(elementData,index + 1,elementData,index,numMoved);
+        }
+        elementData[--size] = null;
+        return oldValue;
+    }
+
+    /**
+     * 获取数组大小
+     * @return
+     */
+    public int size(){
+        return this.size;
+    }
 
 
 
