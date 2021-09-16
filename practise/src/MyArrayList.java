@@ -143,6 +143,12 @@ public class MyArrayList implements Serializable {
         return oldValue;
     }
 
+
+    /**
+     * 删除节点
+     * @param index
+     * @return
+     */
     public Object remove(int index){
         rangeCheck(index);
         //并发判断
