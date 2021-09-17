@@ -33,6 +33,13 @@ class TreeNode{
         this.value = value;
     }
 
+    @Override
+    public String toString() {
+        return "TreeNode{" +
+                "value=" + value +
+                '}';
+    }
+
     /**
      * 递归添加节点
      * @param treeNode 待添加节点
@@ -50,6 +57,27 @@ class TreeNode{
                 //递归向左子树添加
                 this.left.add(treeNode);
             }
+        }else {
+            //添加的节点大于根节点
+            if (this.right == null){
+                this.right = treeNode;
+            }else {
+                this.right.add(treeNode);
+            }
         }
     }
+
+    /**
+     * 中序遍历
+     */
+    public void infixOrder(){
+        if (this.left != null){
+            this.left.infixOrder();
+        }
+        System.out.println(this);
+        if (this.right != null){
+            this.right.infixOrder();
+        }
+    }
+
 }
