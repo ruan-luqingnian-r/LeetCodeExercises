@@ -81,3 +81,27 @@ class TreeNode{
     }
 
 }
+
+/**
+ * 创建二叉排序树
+ */
+class BinarySortTree{
+    /**
+     * 创建二叉树
+     */
+    private TreeNode root;
+    public void add(TreeNode treeNode){
+        if (root == null){
+            root = treeNode;
+        }else {
+            root.add(treeNode);
+        }
+    }
+    public void infixOrder(){
+        if (root != null){
+            root.infixOrder();
+        }else {
+            System.out.println("null");
+        }
+    }
+}
