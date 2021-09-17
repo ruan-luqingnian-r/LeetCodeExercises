@@ -8,6 +8,14 @@ package tree;
  * ps：如果有相同值，可以将该节点放在左或者右
  */
 public class BinarySortTreeDemo {
+    public static void main(String[] args) {
+        int[] arr = {7,3,10,12,5,1,9};
+        BinarySortTree binarySortTree = new BinarySortTree();
+        for (int i = 0; i < arr.length; i++) {
+            binarySortTree.add(new TreeNode(arr[i]));
+        }
+        binarySortTree.infixOrder();
+    }
 }
 /**
  * 树节点
