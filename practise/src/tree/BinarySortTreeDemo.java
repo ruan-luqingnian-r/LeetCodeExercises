@@ -9,3 +9,9 @@ package tree;
  */
 public class BinarySortTreeDemo {
 }
+/**
+ * 树节点
+ */
+class TreeNode{
+
+}
