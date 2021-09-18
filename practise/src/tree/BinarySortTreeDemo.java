@@ -72,6 +72,16 @@ class TreeNode{
     public TreeNode searchParentNode(int target){
         if ((this.left != null && this.left.value == target) || (this.right != null && this.right.value == target)){
             return this;
+        }else {
+            if (target < this.value && this.left != null){
+                //向左递归查找
+                return this.left.searchParentNode(target);
+            }else if (target >= this.value && this.right != null){
+                return this.right.searchParentNode(target);
+            }else {
+                //没有找到父节点
+                return null;
+            }
         }
 
     }
