@@ -41,6 +41,41 @@ class TreeNode{
         this.value = value;
     }
 
+    /**
+     * 搜索待插入节点
+     * @param target 节点值
+     * @return 节点/null
+     */
+    public TreeNode searchNode(int target){
+        if (this.value == target){
+            return this;
+        }else if (this.value < target){
+            //向左左子树继续查找
+            if (this.left == null){
+                return null;
+            }
+            return this.left.searchNode(target);
+        }else {
+            //向右子树搜索
+            if (this.right == null){
+                return null;
+            }
+            return this.right.searchNode(target);
+        }
+    }
+
+    /**
+     * 查找待删除节点的父节点
+     * @param target 待删除节点的值
+     * @return 待删除节点的父节点
+     */
+    public TreeNode searchParentNode(int target){
+        if ((this.left != null && this.left.value == target) || (this.right != null && this.right.value == target)){
+            return this;
+        }
+
+    }
+
     @Override
     public String toString() {
         return "TreeNode{" +
@@ -87,6 +122,12 @@ class TreeNode{
             this.right.infixOrder();
         }
     }
+    /**
+     * 删除节点
+     * 1.找到待删除节点
+     * 2.找到次节点的父节点
+     * 3.确定targetNode是父子节点的左子节点或者又字节的
+     */
 
 }
 
