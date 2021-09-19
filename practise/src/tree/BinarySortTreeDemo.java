@@ -132,12 +132,7 @@ class TreeNode{
             this.right.infixOrder();
         }
     }
-    /**
-     * 删除节点
-     * 1.找到待删除节点
-     * 2.找到次节点的父节点
-     * 3.确定targetNode是父子节点的左子节点或者又字节的
-     */
+
 
 }
 
@@ -145,6 +140,30 @@ class TreeNode{
  * 创建二叉排序树
  */
 class BinarySortTree{
+    /**
+     * 查找待删除节点
+     * @param target
+     * @return
+     */
+    public TreeNode search(int target){
+        if (root == null){
+            return null;
+        }else {
+            return root.searchNode(target);
+        }
+    }
+
+    /**
+     * 查找待删除节点父节点
+     * @return
+     */
+    public TreeNode searchParenSearch(int target){
+        if (root == null){
+            return null;
+        }else {
+            return root.searchParentNode(target);
+        }
+    }
     /**
      * 创建二叉树
      */
