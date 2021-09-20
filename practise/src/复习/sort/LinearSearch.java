@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * @Author: ruan
  * Date: 2021/9/20 20:57
- * @Description:
+ * @Description: 线性搜索
  */
 public class LinearSearch {
     public static void main(String[] args) {
