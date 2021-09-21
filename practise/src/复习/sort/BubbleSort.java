@@ -1,4 +1,4 @@
-package 复习.find;
+package 复习.sort;
 
 import java.util.Arrays;
 import java.util.Random;
