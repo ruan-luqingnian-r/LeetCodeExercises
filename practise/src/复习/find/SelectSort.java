@@ -17,7 +17,19 @@ public class SelectSort {
     private static void sort(int[] arr) {
         for (int i = 0;i < arr.length;i++){
             //保证下标和变量
-
+            int minIndex = i;
+            int minValue = arr[i];
+            //遍历数组找到真正的最小值
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < minValue){
+                    minIndex = j;
+                    minValue = arr[j];
+                }
+            }
+            if (minIndex != i){
+                arr[minIndex] = arr[i];
+                arr[i] = minValue;
+            }
         }
     }
 }
