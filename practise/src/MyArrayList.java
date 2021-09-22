@@ -37,7 +37,19 @@ public class MyArrayList implements Serializable {
         this.elementDate = EMPTY_ELEMENT_DATA;
     }
 
+    /**
+     * 有参构造方法
+     * @param initialCapacity 指定的初始容量
+     */
     public MyArrayList(int initialCapacity){
-
+        if(initialCapacity == 0){
+            this.elementDate = EMPTY_ELEMENT_DATA;
+        }else if (initialCapacity > 0){
+            this.elementDate = new Object[initialCapacity];
+        }else {
+            throw new IllegalArgumentException("参数异常，无法创建小于零的数组");
+        }
     }
+
+
 }
