@@ -122,7 +122,7 @@ public class MyArrayList implements Serializable {
     public int indexOf(Object o){
         if (o == null){
             for (int i = 0; i < size; i++) {
-                if (elementDate[i] == o){
+                if (elementDate[i] == null){
                     return i;
                 }
             }
