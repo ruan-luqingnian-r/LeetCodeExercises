@@ -136,6 +136,50 @@ public class MyArrayList implements Serializable {
         return -1;
     }
 
+    /**
+     * 根据索引修改数据
+     * @param index 索引
+     * @param o 新数据
+     * @return 旧数据
+     */
+    public Object set(int index,Object o){
+        //用于并发判断
+        modCount++;
+        rangeCheck(index);
+        Object oldValue = elementDate[index];
+        elementDate[index] = o;
+        return oldValue;
+    }
+
+    /**
+     * 根据索引删除数据
+     * @param index 索引
+     * @return 被删除的数据
+     */
+    public Object remove(int index){
+        //并发判断
+        modCount++;
+        rangeCheck(index);
+        Object oldValue = elementDate[index];
+        //计算删除的位置后面的数据量
+        int numMoved = size - index - 1;
+        //移动数组
+        if(numMoved > 0){
+            System.arraycopy(elementDate,index + 1,elementDate,index,numMoved);
+        }
+        //因为删除了一个，并且已经移动完成，尾端置空
+        elementDate[--size] = null;
+        return oldValue;
+    }
+
+    /**
+     * 获取数组的大小
+     * @return 数组的大小
+     */
+    public int size(){
+        return this.size;
+    }
+
 
 
 }
