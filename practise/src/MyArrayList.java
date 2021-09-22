@@ -114,6 +114,28 @@ public class MyArrayList implements Serializable {
         return elementDate[index];
     }
 
+    /**
+     * 判断对象的位置
+     * @param o 对象
+     * @return 索引下标
+     */
+    public int indexOf(Object o){
+        if (o == null){
+            for (int i = 0; i < size; i++) {
+                if (elementDate[i] == o){
+                    return i;
+                }
+            }
+        }else {
+            for (int i = 0; i < size; i++) {
+                if(elementDate[i] == o){
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
 
 
 }
