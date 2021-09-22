@@ -14,6 +14,7 @@ public class CopyFiles {
         writeFiles(str);
         scanner.close();*/
         readFiles("text.txt");
+        copyFile("text.txt","copy.txt");
 
     }
 
@@ -49,6 +50,30 @@ public class CopyFiles {
             byte[] buf = new byte[1024];
             while ((size = bufferedInputStream.read(buf)) != -1)
             System.out.println(new String(buf,0,size));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 拷贝文件
+     * @param oldPath 待拷贝的文件路径
+     * @param newPath 拷贝后的文件路径
+     */
+    public static void copyFile(String oldPath,String newPath){
+        try(FileInputStream fileInputStream = new FileInputStream(oldPath);
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+            FileOutputStream fileOutputStream = new FileOutputStream(newPath);
+            BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream)
+        ) {
+            int size;
+            byte[] bytes = new byte[1024];
+            while ((size = bufferedInputStream.read(bytes)) != -1){
+                bufferedOutputStream.write(bytes,0,size);
+            }
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
