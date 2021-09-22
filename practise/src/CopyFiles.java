@@ -9,10 +9,10 @@ import java.util.Scanner;
  */
 public class CopyFiles {
     public static void main(String[] args) {
-        /*Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
         writeFiles(str);
-        scanner.close();*/
+        scanner.close();
         readFiles("text.txt");
         copyFile("text.txt","copy.txt");
 
