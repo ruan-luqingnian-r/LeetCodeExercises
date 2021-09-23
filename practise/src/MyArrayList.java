@@ -88,5 +88,55 @@ public class MyArrayList implements Serializable {
         }
     }
 
+    public boolean add(Object o){
+        //并发判断
+        modCount++;
+        //扩容
+        ensureCapacityInternal(size + 1);
+        elementDate[size++] = o;
+        return true;
+    }
+
+    public Object get(int index){
+        rangeCheck(index);
+        return elementDate[index];
+    }
+
+    public int indexOf(Object o){
+        if (o == null){
+            for (int i = 0; i < size; i++) {
+                if (elementDate[i] == null){
+                    return i;
+                }
+            }
+        }else {
+            for (int i = 0; i < size; i++) {
+                if (elementDate[i] == o){
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+    public Object set(int index,Object o){
+        rangeCheck(index);
+        Object oldValue = elementDate[index];
+        elementDate[index] = o;
+        return oldValue;
+    }
+
+    public Object remove(int index){
+        rangeCheck(index);
+        Object o = elementDate[index];
+        //计算要后移多少数据
+        int numMove = size - index - 1;
+        if (numMove > 0){
+            System.arraycopy(elementDate,index + 1,elementDate,index,numMove);
+        }
+        elementDate[--size] = null;
+        return o;
+    }
+
 
 }
