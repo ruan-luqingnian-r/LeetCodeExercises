@@ -13,10 +13,14 @@ public class Test01 {
         System.out.println(str1 == str2);
         System.out.println(str2 == str3);
 
-        String s1 = "test";
+        //变量s1,加上final之后变成常量
+        final String s1 = "test";
+        //变量+常量，来自堆
         String s2 = s1 + ".txt";
+        //常量+常量，来自常量池
         String s3 = "test" + ".txt";
         System.out.println(s2 == "test.txt");
         System.out.println(s3 == "test.txt");
+
     }
 }
