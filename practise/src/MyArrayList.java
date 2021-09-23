@@ -52,4 +52,39 @@ public class MyArrayList implements Serializable {
             throw new IllegalArgumentException("参数异常");
         }
     }
+
+    /**
+     * 扩容机制
+     * @param minCapacity 最小容量
+     */
+    private void ensureCapacityInternal(int minCapacity){
+        //初次扩容
+        if (this.elementDate == EMPTY_ELEMENT_DATA){
+            minCapacity = Math.max(minCapacity,DEFAULT_CAPACITY);
+        }
+        //如果当前数组容量小于最小容量（需要扩容）
+        if (elementDate.length - minCapacity < 0){
+            int oldCapacity = elementDate.length;
+            int newCapacity = oldCapacity + (oldCapacity >> 1);
+            if (newCapacity - minCapacity < 0){
+                newCapacity = minCapacity;
+            }
+            //创建数组
+            Object[] objects = new Object[newCapacity];
+            //拷贝数据
+            System.arraycopy(elementDate,0,objects,0,elementDate.length);
+            //修改索引
+            elementDate = objects;
+        }
+    }
+
+    /**
+     * 索引检查
+     * @param index 索引
+     */
+    private void rangeCheck(int index){
+        if (index < 0 || index > size){
+            throw new IndexOutOfBoundsException("索引越界");
+        }
+    }
 }
