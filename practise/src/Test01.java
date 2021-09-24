@@ -1,5 +1,6 @@
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * @Author: ruan
@@ -40,5 +41,22 @@ class User{
 
     public void setTime(Date time) {
         this.time = time;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(age,name,time);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj){
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()){
+            return false;
+        }
+        User user = (User) obj;
+        return age == user.age && Objects.equals(name,user.name) && Objects.equals(time,user.time);
     }
 }

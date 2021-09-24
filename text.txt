@@ -1,1 +1,1 @@
-stringbuffer 加锁-线程安全 stringbuder 线程不安全性能较好
+呵呵 \n hh
