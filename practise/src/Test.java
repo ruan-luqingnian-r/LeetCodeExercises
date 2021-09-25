@@ -4,7 +4,8 @@
  * @Description:
  */
 public class Test {
-    private MyUnReentrantLock lock = new MyUnReentrantLock();
+    //private MyUnReentrantLock lock = new MyUnReentrantLock();
+    private MyReentrantLock lock = new MyReentrantLock();
     public static void main(String[] args) {
 
         Test test = new Test();
@@ -12,16 +13,27 @@ public class Test {
 
     }
     public void methodA(){
-        lock.lock();
-        System.out.println("methodA被调用");
-        methodB();
-        lock.unLock();
+        try {
+            lock.lock();
+            System.out.println("methodA被调用");
+            methodB();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            lock.unLock();
+        }
     }
 
     private void methodB() {
-        lock.lock();
-        System.out.println("methodB被调用");
-        methodA();
-        lock.unLock();
+        try {
+            lock.lock();
+            System.out.println("methodB被调用");
+            //methodA();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            lock.unLock();
+        }
+
     }
 }
