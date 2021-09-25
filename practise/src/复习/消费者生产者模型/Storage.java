@@ -22,7 +22,7 @@ public class Storage {
                 System.out.println("【生产者" + Thread.currentThread().getName() + "】仓库已满");
                 try {
                     //生产者线程暂停
-                    list.wait();
+                    wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -43,7 +43,7 @@ public class Storage {
             while (list.size() == 0){
                 System.out.println("【消费者" + Thread.currentThread().getName() + "】仓库为空");
                 try {
-                    list.wait();
+                    wait();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
