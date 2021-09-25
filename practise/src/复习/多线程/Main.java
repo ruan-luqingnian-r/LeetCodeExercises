@@ -29,7 +29,7 @@ public class Main {
         ExecutorService executorService = Executors.newFixedThreadPool(3);
         executorService.submit(thread02);
         executorService.shutdown();
-        new ThreadPoolExecutor()
+
 
     }
 }
